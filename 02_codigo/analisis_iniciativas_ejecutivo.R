@@ -18,3 +18,8 @@ bd_iniciativas <-
   bd_iniciativas %>% 
   rename(estatus_primer_año = estatus_al_final_del_primer_ano_de_la_administracion,
          estatus_mes_14 = estatus_al_final_del_mes_14_de_la_administracion)
+
+### Transformar el tipo de la variable fecha_de_presentacion para que sea date ----
+bd_iniciativas <- 
+  bd_iniciativas %>% 
+  mutate(fecha_de_presentacion = dmy(fecha_de_presentacion)) 
