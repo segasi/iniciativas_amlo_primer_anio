@@ -94,6 +94,27 @@ bd_iniciativas %>%
   ggsave("03_graficas/numero_iniciativas_primeros_14_meses_por_tipo.png", width = 14.5, height = 9, dpi = 200)
 
 ### Gráfica del estatus de las iniciativas de reforma presentadas por los últimos cuatro presidentes al final de los primeros 14 meses de su gobierno ----
+
+# Datos de iniciativas de leyes secundarias
+bd %>% 
+  count(presidente_acro, subclasificacion, estatus_al_mes_14) %>% 
+  group_by(presidente_acro, subclasificacion) %>% 
+  mutate(total = sum(n),
+         porcentaje = (n/total)*100) %>% 
+  ungroup() %>% 
+  filter(subclasificacion  == "Ley Secundaria")
+
+# Datos de iniciativas de reforma constitucional
+bd %>% 
+  count(presidente_acro, subclasificacion, estatus_al_mes_14) %>% 
+  group_by(presidente_acro, subclasificacion) %>% 
+  mutate(total = sum(n),
+         porcentaje = (n/total)*100) %>% 
+  ungroup() %>% 
+  filter(subclasificacion  == "Reforma Constitucional")
+
+
+# Gráfica
 g_numero <- 
   bd %>% 
   count(presidente_acro, estatus_al_mes_14, subclasificacion) %>% 
