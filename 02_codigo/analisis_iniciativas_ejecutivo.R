@@ -23,3 +23,18 @@ bd_iniciativas <-
 bd_iniciativas <- 
   bd_iniciativas %>% 
   mutate(fecha_de_presentacion = dmy(fecha_de_presentacion)) 
+
+### Generar variables para definir estatus simplificado de las iniciativas al (i) año y (ii) mes 14 ----
+bd_iniciativas <- 
+  bd_iniciativas %>% 
+  mutate(estatus_al_año = case_when(str_detect(estatus_primer_año, "Publicado") ~ "Publicado en el DOF",
+                                    str_detect(estatus_primer_año, "Pendiente") ~ "Pendiente",
+                                    str_detect(estatus_primer_año, "Devuelto") ~ "Pendiente",
+                                    TRUE ~ estatus_primer_año),
+         estatus_al_año = fct_relevel(estatus_al_año, "Publicado en el DOF", "Aprobado, por publicar en el DOF", "Pendiente", "Desechado"),
+         estatus_al_mes_14 = case_when(str_detect(estatus_mes_14, "Publicado") ~ "Publicado en el DOF",
+                                       str_detect(estatus_mes_14, "Pendiente") ~ "Pendiente",
+                                       str_detect(estatus_mes_14, "Devuelto") ~ "Pendiente",
+                                       TRUE ~ estatus_mes_14),
+         estatus_al_mes_14 = fct_relevel(estatus_al_mes_14, "Publicado en el DOF", "Aprobado, por publicar en el DOF", "Pendiente", "Desechado"),
+  )
