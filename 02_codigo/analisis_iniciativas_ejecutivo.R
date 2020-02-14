@@ -12,3 +12,9 @@ bd_iniciativas <-
 
 
 # Base de datos construida con información de http://sil.gobernacion.gob.mx/portal
+
+### Renombrar variables ----
+bd_iniciativas <- 
+  bd_iniciativas %>% 
+  rename(estatus_primer_año = estatus_al_final_del_primer_ano_de_la_administracion,
+         estatus_mes_14 = estatus_al_final_del_mes_14_de_la_administracion)
