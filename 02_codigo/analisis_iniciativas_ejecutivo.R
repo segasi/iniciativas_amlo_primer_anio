@@ -36,5 +36,16 @@ bd_iniciativas <-
                                        str_detect(estatus_mes_14, "Pendiente") ~ "Pendiente",
                                        str_detect(estatus_mes_14, "Devuelto") ~ "Pendiente",
                                        TRUE ~ estatus_mes_14),
-         estatus_al_mes_14 = fct_relevel(estatus_al_mes_14, "Publicado en el DOF", "Aprobado, por publicar en el DOF", "Pendiente", "Desechado"),
-  )
+         estatus_al_mes_14 = fct_relevel(estatus_al_mes_14, "Publicado en el DOF", "Aprobado, por publicar en el DOF", "Pendiente", "Desechado"))
+
+
+### Generar versión corta del nombre de cada presidente y reordenar niveles tanto de presidente_corto como de presidente ----
+bd_iniciativas <- 
+  bd_iniciativas %>% 
+  mutate(presidente_corto = case_when(presidente == "Vicente Fox Quezada" ~ "Fox",
+                                      presidente == "Felipe Calderón Hinojosa" ~ "Calderón", 
+                                      presidente == "Enrique Peña Nieto" ~ "Peña Nieto",
+                                      presidente == "Andrés Manuel López Obrador" ~ "López Obrador"), 
+         presidente_corto = fct_relevel(presidente_corto, "Fox", "Calderón", "Peña Nieto", "López Obrador"),
+         presidente = fct_relevel(presidente, "Vicente Fox Quezada", "Felipe Calderón Hinojosa", "Enrique Peña Nieto", "Andrés Manuel López Obrador"))
+
