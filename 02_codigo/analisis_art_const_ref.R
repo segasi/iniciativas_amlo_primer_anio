@@ -5,3 +5,6 @@ source("02_codigo/paquetes_setup_tema.R")
 art_ref <- 
   read_excel("01_datos/articulos_constitucion_reformados.xlsx") %>% 
   mutate(fecha_publicacion = as_date(fecha_publicacion))
+
+# Base de datos construida con base en la información de esta página: http://www.diputados.gob.mx/LeyesBiblio/ref/cpeum_crono.htm
+
