@@ -8,3 +8,12 @@ art_ref <-
 
 # Base de datos construida con base en la información de esta página: http://www.diputados.gob.mx/LeyesBiblio/ref/cpeum_crono.htm
 
+
+### Calcular número de artículos reformados en cada admin ----
+
+# Esto comprende los primeros 14 meses de cada administración
+art_ref %>% 
+  group_by(presidente) %>% 
+  summarise(numero = n()) %>% 
+  ungroup()
+
