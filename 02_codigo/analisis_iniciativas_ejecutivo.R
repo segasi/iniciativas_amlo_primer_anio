@@ -83,7 +83,7 @@ bd_iniciativas %>%
   scale_x_discrete(expand = c(0, 0)) +
   scale_y_continuous(breaks = seq(0, 40, 5), limits = c(-1, 42), expand = c(0, 0)) +
   scale_fill_manual(values = c("steelblue", "salmon")) +
-  labs(title = str_wrap("Número de iniciativas de reforma constitucional y a leyes secundarias presentadas por los últimos cuatro presidentes de México en los primeros 14 meses de su gobierno", width = 70),
+  labs(title = str_wrap("Número de iniciativas de reforma a leyes secundarias y a la Constitución presentadas por los últimos cuatro presidentes de México en los primeros 14 meses de su gobierno", width = 75),
        x = NULL,
        y = "Número\n",
        caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 31 de enero de 2002, 2008, 2014 y 2020, respectivamente.",
@@ -91,7 +91,7 @@ bd_iniciativas %>%
   tema +
   theme(panel.grid = element_blank(),
         legend.position = c(0.885, 0.9)) +
-  ggsave("03_graficas/numero_iniciativas_primeros_14_meses_por_tipo.png", width = 14, height = 9, dpi = 200)
+  ggsave("03_graficas/numero_iniciativas_primeros_14_meses_por_tipo.png", width = 14.5, height = 9, dpi = 200)
 
 ### Gráfica del estatus de las iniciativas de reforma presentadas por los últimos cuatro presidentes al final de los primeros 14 meses de su gobierno ----
 g_numero <- 
@@ -107,7 +107,7 @@ g_numero <-
   facet_wrap(~ subclasificacion) +
   # scale_y_continuous(expand = c(0, 0), limits = c(-1, 105), breaks = seq(0, 100, 10)) +
   scale_fill_manual(values = c("#1a9850", "#d9ef8b", "#d73027", "grey90")) +
-  labs(title = str_wrap("Estatus de las iniciativas de reforma a leyes secundarias y a la Constitución presentadas por los últimos cuatro presidentes de México, al final de los primeros 14 meses de su gobierno", width = 70),
+  labs(title = str_wrap("Estatus de las iniciativas de reforma a leyes secundarias y a la Constitución presentadas por los últimos cuatro presidentes de México, al final de los primeros 14 meses de su gobierno", width = 77),
        x = NULL,
        y = "Número\n",
        caption = NULL,
@@ -151,6 +151,6 @@ g_porcentaje <-
 
 
 plot_grid(g_numero, g_porcentaje, ncol = 1) + 
-  ggsave("03_graficas/numerp_y_porcentaje_iniciativas_mes_14_por_estatus.png", width = 14, height = 9, dpi = 200)
+  ggsave("03_graficas/numero_y_porcentaje_iniciativas_mes_14_por_estatus.png", width = 15, height = 9, dpi = 200)
 
 
