@@ -49,3 +49,7 @@ bd_iniciativas <-
          presidente_corto = fct_relevel(presidente_corto, "Fox", "Calderón", "Peña Nieto", "López Obrador"),
          presidente = fct_relevel(presidente, "Vicente Fox Quezada", "Felipe Calderón Hinojosa", "Enrique Peña Nieto", "Andrés Manuel López Obrador"))
 
+### Reordenar niveles de subclasificacion ----
+bd_iniciativas <- 
+  bd_iniciativas %>% 
+  mutate(subclasificacion = fct_relevel(subclasificacion, "Ley Secundaria", "Reforma Constitucional"))
