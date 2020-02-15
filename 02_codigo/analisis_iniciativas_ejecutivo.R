@@ -159,7 +159,7 @@ g_porcentaje <-
   labs(title = NULL,
        x = NULL,
        y = "Porcentaje\n",
-       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 31 de enero de 2002, 2008, 2014 y 2020, respectivamente.",
+       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 13 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
        fill = NULL) +
   tema +
   theme(panel.grid = element_blank(),
