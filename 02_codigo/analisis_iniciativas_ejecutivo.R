@@ -86,7 +86,7 @@ bd_iniciativas %>%
   labs(title = str_wrap("Número de iniciativas de reforma a leyes secundarias y a la Constitución presentadas por los últimos cuatro presidentes de México en los primeros 14 meses de su gobierno", width = 75),
        x = NULL,
        y = "Número\n",
-       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 31 de enero de 2002, 2008, 2014 y 2020, respectivamente.",
+       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 13 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
        fill = NULL) +
   tema +
   theme(panel.grid = element_blank(),
