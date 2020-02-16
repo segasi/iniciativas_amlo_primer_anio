@@ -59,24 +59,24 @@ bd_iniciativas <-
 
 # Datos
 bd_iniciativas %>% 
-  group_by(presidente_acro, subclasificacion) %>% 
+  group_by(presidente_corto, subclasificacion) %>% 
   summarise(numero = n()) %>% 
   ungroup() %>% 
-  group_by(presidente_acro) %>% 
+  group_by(presidente_corto) %>% 
   mutate(total = sum(numero)) %>% 
   ungroup()
 
 # Gráfica
 bd_iniciativas %>% 
-  group_by(presidente_acro, subclasificacion) %>% 
+  group_by(presidente_corto, subclasificacion) %>% 
   summarise(numero = n()) %>% 
   ungroup() %>% 
-  group_by(presidente_acro) %>% 
+  group_by(presidente_corto) %>% 
   mutate(total = sum(numero),
-         presidente_acro_grafica = str_c(presidente_acro, "\n (", total, ")")) %>% 
+         presidente_corto_grafica = str_c(presidente_corto, "\n (", total, ")")) %>% 
   ungroup() %>%
-  mutate(presidente_acro_grafica = fct_relevel(presidente_acro_grafica, "Fox\n (42)", "Calderón\n (29)", "Peña Nieto\n (41)", "López Obrador\n (16)")) %>% 
-  ggplot(aes(x = presidente_acro_grafica, y = numero, fill = subclasificacion)) +
+  mutate(presidente_corto_grafica = fct_relevel(presidente_corto_grafica, "Fox\n (42)", "Calderón\n (29)", "Peña Nieto\n (41)", "López Obrador\n (16)")) %>% 
+  ggplot(aes(x = presidente_corto_grafica, y = numero, fill = subclasificacion)) +
   geom_col() +
   geom_hline(yintercept = seq(5, 40, 5), color = "white", linetype = 3) +
   
@@ -86,28 +86,29 @@ bd_iniciativas %>%
   labs(title = str_wrap("Número de iniciativas de reforma a leyes secundarias y a la Constitución presentadas por los últimos cuatro presidentes de México en los primeros 14 meses de su gobierno", width = 75),
        x = NULL,
        y = "Número\n",
-       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 13 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
+       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 15 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
        fill = NULL) +
   tema +
   theme(panel.grid = element_blank(),
-        legend.position = c(0.885, 0.9)) +
+        legend.position = c(0.885, 0.9), 
+        legend.text = element_text(size = 16)) +
   ggsave("03_graficas/numero_iniciativas_primeros_14_meses_por_tipo.png", width = 14.5, height = 9, dpi = 200)
 
 ### Gráfica del estatus de las iniciativas de reforma presentadas por los últimos cuatro presidentes al final de los primeros 14 meses de su gobierno ----
 
 # Datos de iniciativas de leyes secundarias
-bd %>% 
-  count(presidente_acro, subclasificacion, estatus_al_mes_14) %>% 
-  group_by(presidente_acro, subclasificacion) %>% 
+bd_iniciativas %>% 
+  count(presidente_corto, subclasificacion, estatus_al_mes_14) %>% 
+  group_by(presidente_corto, subclasificacion) %>% 
   mutate(total = sum(n),
          porcentaje = (n/total)*100) %>% 
   ungroup() %>% 
   filter(subclasificacion  == "Ley Secundaria")
 
 # Datos de iniciativas de reforma constitucional
-bd %>% 
-  count(presidente_acro, subclasificacion, estatus_al_mes_14) %>% 
-  group_by(presidente_acro, subclasificacion) %>% 
+bd_iniciativas %>% 
+  count(presidente_corto, subclasificacion, estatus_al_mes_14) %>% 
+  group_by(presidente_corto, subclasificacion) %>% 
   mutate(total = sum(n),
          porcentaje = (n/total)*100) %>% 
   ungroup() %>% 
@@ -116,13 +117,13 @@ bd %>%
 
 # Gráfica
 g_numero <- 
-  bd %>% 
-  count(presidente_acro, estatus_al_mes_14, subclasificacion) %>% 
-  group_by(presidente_acro, subclasificacion) %>% 
+  bd_iniciativas %>% 
+  count(presidente_corto, estatus_al_mes_14, subclasificacion) %>% 
+  group_by(presidente_corto, subclasificacion) %>% 
   mutate(total = sum(n),
          porcentaje = (n/total)*100) %>% 
   ungroup() %>% 
-  ggplot(aes(x= presidente_acro, y = n, fill = estatus_al_mes_14)) +
+  ggplot(aes(x= presidente_corto, y = n, fill = estatus_al_mes_14)) +
   geom_col() +
   geom_hline(yintercept = seq(10, 40, 10), linetype = 3, color = "white") +
   facet_wrap(~ subclasificacion) +
@@ -144,13 +145,13 @@ g_numero <-
 
 
 g_porcentaje <- 
-  bd %>% 
-  count(presidente_acro, estatus_al_mes_14, subclasificacion) %>% 
-  group_by(presidente_acro, subclasificacion) %>% 
+  bd_iniciativas %>% 
+  count(presidente_corto, estatus_al_mes_14, subclasificacion) %>% 
+  group_by(presidente_corto, subclasificacion) %>% 
   mutate(total = sum(n),
          porcentaje = (n/total)*100) %>% 
   ungroup() %>% 
-  ggplot(aes(x= presidente_acro, y = porcentaje, fill = estatus_al_mes_14)) +
+  ggplot(aes(x= presidente_corto, y = porcentaje, fill = estatus_al_mes_14)) +
   geom_col() +
   geom_hline(yintercept = seq(20, 80, 20), linetype = 3, color = "white") +
   facet_wrap(~ subclasificacion) +
@@ -159,7 +160,7 @@ g_porcentaje <-
   labs(title = NULL,
        x = NULL,
        y = "Porcentaje\n",
-       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 13 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
+       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 15 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
        fill = NULL) +
   tema +
   theme(panel.grid = element_blank(),
@@ -172,6 +173,6 @@ g_porcentaje <-
 
 
 plot_grid(g_numero, g_porcentaje, ncol = 1) + 
-  ggsave("03_graficas/numero_y_porcentaje_iniciativas_mes_14_por_estatus.png", width = 15, height = 9, dpi = 200)
+  ggsave("03_graficas/numero_y_porcentaje_iniciativas_mes_14_por_estatus.png", width = 15, height = 12, dpi = 200)
 
 
