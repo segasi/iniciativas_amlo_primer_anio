@@ -83,7 +83,7 @@ bd_iniciativas %>%
   scale_x_discrete(expand = c(0, 0)) +
   scale_y_continuous(breaks = seq(0, 40, 5), limits = c(-1, 42), expand = c(0, 0)) +
   scale_fill_manual(values = c("salmon", "steelblue")) +
-  labs(title = str_wrap("Número de iniciativas de reforma constitucionales y a leyes secundarias presentadas por los últimos cuatro presidentes de México en los primeros 14 meses de su gobierno", width = 75),
+  labs(title = str_wrap("Número de iniciativas de reformas constitucionales y a leyes secundarias presentadas por los últimos cuatro presidentes de México en los primeros 14 meses de su gobierno", width = 75),
        x = NULL,
        y = "Número\n",
        caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 15 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
@@ -129,7 +129,7 @@ g_numero <-
   facet_wrap(~ subclasificacion) +
   # scale_y_continuous(expand = c(0, 0), limits = c(-1, 105), breaks = seq(0, 100, 10)) +
   scale_fill_manual(values = c("#1a9850", "#d9ef8b", "#d73027", "grey90")) +
-  labs(title = str_wrap("Estatus de las iniciativas de de reforma constitucionales y a leyes secundarias presentadas por los últimos cuatro presidentes de México, al final de los primeros 14 meses de su gobierno", width = 77),
+  labs(title = str_wrap("Estatus de las iniciativas de reformas constitucionales y a leyes secundarias presentadas por los últimos cuatro presidentes de México, al final de los primeros 14 meses de su gobierno", width = 77),
        x = NULL,
        y = "Número\n",
        caption = NULL,
