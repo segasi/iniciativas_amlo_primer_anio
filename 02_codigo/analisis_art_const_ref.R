@@ -19,6 +19,7 @@ art_ref %>%
 
 ### Calcular número de artículos reformados en cada admin ----
 
+# Más de una reforma puede haber modificado aspectos del mismo artículo
 art_ref %>% 
   group_by(presidente) %>% 
   count(articulo_reformado) %>% 
