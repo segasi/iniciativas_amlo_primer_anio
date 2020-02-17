@@ -1,6 +1,6 @@
 # El presidente y la Constitución
 
-Este repo contiene el código y gráficas que usé/generé para analizar (i) los cambios que ha experimentado la Constitución mexicana durante los primeros 14 meses del gobierno de Andrés Manuel López Obrador; (ii) el paple que ha jugado el presidente en estas reformas; y, (iii) la suerte que han tenido las iniciativas presentadas por el presidente.
+Este repo contiene el código y gráficas que usé/generé para analizar (i) los cambios que ha experimentado la Constitución mexicana durante los primeros 14 meses del gobierno de Andrés Manuel López Obrador; (ii) el papel que ha jugado el presidente en estas reformas; y, (iii) la suerte que han tenido las iniciativas presentadas por el presidente.
 
 Puedes consular el texto de este análisis en [Nexos]().
 
