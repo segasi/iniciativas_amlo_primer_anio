@@ -1,2 +1,7 @@
-# iniciatovas_amlo_primer_anio
-Análisis del estatus de las iniciativas presentadas por Andrés Manuel López Obrador en su primer año de gobierno
+# El presidente y la Constitución
+
+Este repo contiene el código y gráficas que usé/generé para analizar (i) los cambios que ha experimentado la Constitución mexicana durante los primeros 14 meses del gobierno de Andrés Manuel López Obrador; (ii) el paple que ha jugado el presidente en estas reformas; y, (iii) la suerte que han tenido las iniciativas presentadas por el presidente.
+
+Puedes consular el texto de este análisis en [Nexos]().
+
+![My image](https://github.com/segasi/tdd_victimas_homicidios/blob/master/03_graficas/numero_y_porcentaje_iniciativas_mes_14_por_estatus.png)
