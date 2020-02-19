@@ -75,15 +75,15 @@ bd_iniciativas %>%
   mutate(total = sum(numero),
          presidente_corto_grafica = str_c(presidente_corto, "\n (", total, ")")) %>% 
   ungroup() %>%
-  mutate(presidente_corto_grafica = fct_relevel(presidente_corto_grafica, "Fox\n (42)", "Calderón\n (29)", "Peña Nieto\n (41)", "López Obrador\n (16)")) %>% 
+  mutate(presidente_corto_grafica = fct_relevel(presidente_corto_grafica, "Fox\n (46)", "Calderón\n (30)", "Peña Nieto\n (41)", "López Obrador\n (16)")) %>% 
   ggplot(aes(x = presidente_corto_grafica, y = numero, fill = subclasificacion)) +
   geom_col() +
   geom_hline(yintercept = seq(5, 40, 5), color = "white", linetype = 3) +
   
   scale_x_discrete(expand = c(0, 0)) +
-  scale_y_continuous(breaks = seq(0, 40, 5), limits = c(-1, 42), expand = c(0, 0)) +
+  scale_y_continuous(breaks = seq(0, 45, 5), limits = c(-1, 48), expand = c(0, 0)) +
   scale_fill_manual(values = c("salmon", "steelblue")) +
-  labs(title = str_wrap("Número de iniciativas de reformas constitucionales y a leyes secundarias presentadas por los últimos cuatro presidentes de México en los primeros 14 meses de su gobierno", width = 75),
+  labs(title = str_wrap("Número de iniciativas de reformas constitucionales y a leyes secundarias presentadas por los últimos cuatro presidentes de México en los primeros 14 meses de su gobierno", width = 73),
        x = NULL,
        y = "Número\n",
        caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 15 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
