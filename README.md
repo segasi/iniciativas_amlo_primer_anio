@@ -4,4 +4,4 @@ Este repo contiene el código y gráficas que usé/generé para analizar (i) los
 
 Puedes consultar el texto de este análisis en [Nexos](https://datos.nexos.com.mx/?p=1243).
 
-![My image](https://github.com/segasi/iniciativas_amlo_primer_anio/blob/master/03_graficas/numero_y_porcentaje_iniciativas_mes_14_por_estatus.png)
+![My image](https://github.com/segasi/iniciativas_amlo_primer_anio/blob/master/03_graficas/numero_y_porcentaje_iniciativas_mes_14_por_estatus_.png)
