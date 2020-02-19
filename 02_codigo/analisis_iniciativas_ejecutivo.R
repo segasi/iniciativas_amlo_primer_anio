@@ -86,13 +86,13 @@ bd_iniciativas %>%
   labs(title = str_wrap("Número de iniciativas de reformas constitucionales y a leyes secundarias presentadas por los últimos cuatro presidentes de México en los primeros 14 meses de su gobierno", width = 73),
        x = NULL,
        y = "Número\n",
-       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 15 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
+       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 15 de febrero de 2002, 2008, 2014 y 2020, respectivamente. ",
        fill = NULL) +
   tema +
   theme(panel.grid = element_blank(),
         legend.position = c(0.885, 0.9), 
         legend.text = element_text(size = 16)) +
-  ggsave("03_graficas/numero_iniciativas_primeros_14_meses_por_tipo.png", width = 14.5, height = 9, dpi = 200)
+  ggsave("03_graficas/numero_iniciativas_primeros_14_meses_por_tipo_.png", width = 14.5, height = 9, dpi = 200)
 
 ### Gráfica del estatus de las iniciativas de reforma presentadas por los últimos cuatro presidentes al final de los primeros 14 meses de su gobierno ----
 
@@ -160,7 +160,7 @@ g_porcentaje <-
   labs(title = NULL,
        x = NULL,
        y = "Porcentaje\n",
-       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 15 de febrero de 2002, 2008, 2014 y 2020, respectivamente.",
+       caption = "\n   @segasi / Fuente: Sistema de Información Legislativa de SEGOB.\n\n   Datos al 15 de febrero de 2002, 2008, 2014 y 2020, respectivamente. ",
        fill = NULL) +
   tema +
   theme(panel.grid = element_blank(),
@@ -173,6 +173,6 @@ g_porcentaje <-
 
 
 plot_grid(g_numero, g_porcentaje, ncol = 1) + 
-  ggsave("03_graficas/numero_y_porcentaje_iniciativas_mes_14_por_estatus.png", width = 15, height = 12, dpi = 200)
+  ggsave("03_graficas/numero_y_porcentaje_iniciativas_mes_14_por_estatus_.png", width = 15, height = 12, dpi = 200)
 
 
